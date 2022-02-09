@@ -9,29 +9,15 @@ namespace ChatRoomApp.Helpers
 {
     public static class BotHelpers
     {
-        private static readonly string commandPattern = @"(\/(?i)stock(?-i)={1})(\S+\b)$";
         public static bool IsCommand(this ChatMessage chatMessage)
         {
 
-            return Regex.Match(chatMessage.Message, commandPattern).Success;
+            return chatMessage.Message.StartsWith("/");
         }
 
         public static string GetCommand(this ChatMessage chatMessage)
         {
-            if (!chatMessage.IsCommand())
-            {
-                return null;
-            }
-
-            var match = Regex.Match(chatMessage.Message, commandPattern);
-            if (match.Success)
-            {
-                return match.Groups[2].Value;
-            }
-            else
-            {
-                return null;
-            }
+            return !chatMessage.IsCommand() ? null : chatMessage.Message;
         }
     }
 }

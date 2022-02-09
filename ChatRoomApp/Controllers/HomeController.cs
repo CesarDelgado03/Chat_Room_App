@@ -66,6 +66,7 @@ namespace ChatRoomApp.Controllers
         {
             if (ModelState.IsValid)
             {
+                model.Message = model.Message.Trim();
                 if (model.IsCommand())
                 {
                     var command = model.GetCommand();

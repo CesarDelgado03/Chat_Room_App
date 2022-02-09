@@ -12,6 +12,7 @@ namespace ChatRoomApp.Infrastructure.Hubs
     {
         public async Task SendMessage(ChatMessage chatMessage)
         {
+            chatMessage.Message = chatMessage.Message.Trim();
             if (!chatMessage.IsCommand())
             {
                 await Clients.All.SendAsync(method:"receiveMessage", chatMessage);

@@ -30,7 +30,7 @@ namespace ChatRoomApp.Tests
         public void Should_Correctly_DetectNonCommand_Command()
         {
             // arrange
-            ChatMessage msg = new ChatMessage() { Message = "/This is not a valid expected command." };
+            ChatMessage msg = new ChatMessage() { Message = "This is not a valid expected command." };
             bool isCommand = false;
 
             // act
@@ -45,7 +45,7 @@ namespace ChatRoomApp.Tests
         {
             // arrange
             ChatMessage msg = new ChatMessage() { Message = "/stock=AAPL.US" };
-            string resultCommand = "AAPL.US";
+            string resultCommand = "/stock=AAPL.US";
 
             // act
             string testCommand = msg.GetCommand();
@@ -58,7 +58,7 @@ namespace ChatRoomApp.Tests
         public void Should_Return_Null_On_Invalid_Command()
         {
             // arrange
-            ChatMessage msg = new ChatMessage() { Message = "/This is not a valid expected command." };
+            ChatMessage msg = new ChatMessage() { Message = "This is not a valid expected command." };
             string resultCommand = null;
 
             // act
