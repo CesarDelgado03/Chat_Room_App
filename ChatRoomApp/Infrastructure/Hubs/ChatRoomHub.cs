@@ -1,4 +1,5 @@
-﻿using ChatRoomApp.Models;
+﻿using ChatRoomApp.Helpers;
+using ChatRoomApp.Models;
 using Microsoft.AspNetCore.SignalR;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,11 @@ namespace ChatRoomApp.Infrastructure.Hubs
     {
         public async Task SendMessage(ChatMessage chatMessage)
         {
-            await Clients.All.SendAsync("receiveMessage", chatMessage);
+            if (!chatMessage.IsCommand())
+            {
+                await Clients.All.SendAsync(method:"receiveMessage", chatMessage);
+            }
+            
         }
     }
 }

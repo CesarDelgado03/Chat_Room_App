@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.32106.194
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatRoomApp.Core", "ChatRoomApp\ChatRoomApp.Core.csproj", "{9976F626-40F8-431C-A3D2-C3F304FEDFB2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatRoomApp.CommandBot", "ChatRoomApp.CommandBot\ChatRoomApp.CommandBot.csproj", "{2E3B5A79-99C7-4BDA-B0D6-049320DE4685}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatRoomApp.Tests", "ChatRoomApp.Tests\ChatRoomApp.Tests.csproj", "{9EF2133F-ADCF-49A4-91C6-E17D5577F5C3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatRoomApp.WorkerBot", "ChatRoomApp.WorkerBot\ChatRoomApp.WorkerBot.csproj", "{44D627D9-D89B-4AD9-B474-63742D2E7EF5}"
@@ -21,10 +19,6 @@ Global
 		{9976F626-40F8-431C-A3D2-C3F304FEDFB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9976F626-40F8-431C-A3D2-C3F304FEDFB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9976F626-40F8-431C-A3D2-C3F304FEDFB2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2E3B5A79-99C7-4BDA-B0D6-049320DE4685}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2E3B5A79-99C7-4BDA-B0D6-049320DE4685}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2E3B5A79-99C7-4BDA-B0D6-049320DE4685}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2E3B5A79-99C7-4BDA-B0D6-049320DE4685}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9EF2133F-ADCF-49A4-91C6-E17D5577F5C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9EF2133F-ADCF-49A4-91C6-E17D5577F5C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9EF2133F-ADCF-49A4-91C6-E17D5577F5C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
