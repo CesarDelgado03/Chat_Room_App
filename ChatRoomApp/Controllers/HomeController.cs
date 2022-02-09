@@ -1,0 +1,90 @@
+﻿using ChatRoomApp.Data;
+using ChatRoomApp.Helpers;
+using ChatRoomApp.Infrastructure.Bot;
+using ChatRoomApp.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace ChatRoomApp.Controllers
+{
+    [Authorize]
+    public class HomeController : Controller
+    {
+        private readonly ILogger<HomeController> _logger;
+        private readonly UserManager<ChatRoomUser> _userManager;
+        private readonly ApplicationDbContext _context;
+        private readonly IRabbitMQService _mQService;
+
+        public HomeController(
+            ILogger<HomeController> logger,
+            UserManager<ChatRoomUser> userManager,
+            ApplicationDbContext context,
+            IRabbitMQService mQService)
+        {
+            _logger = logger;
+            _userManager = userManager;
+            _context = context;
+            _mQService = mQService;
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            var loggedUser = await _userManager.GetUserAsync(User);
+            ViewBag.DisplayName = loggedUser.DisplayName;
+            ViewBag.UserId = loggedUser.Id;
+            var model = await _context.ChatMessages
+                .Include(m => m.ChatRoomUser)
+                .OrderByDescending(m => m.DateSent)
+                .Take(50)
+                .OrderBy(m => m.DateSent)
+                .ToListAsync();
+
+            return View(model);
+        }
+
+        public IActionResult Privacy()
+        {
+            return View();
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> SendMessage(ChatMessage model)
+        {
+            if (ModelState.IsValid)
+            {
+                if (model.IsCommand())
+                {
+                    var command = model.GetCommand();
+                    //TODO send command to rabbitMQ
+                    _mQService.Send(command);
+                }
+                else
+                {
+                    model.UserName = User.Identity.Name;
+                    var user = await _userManager.GetUserAsync(User);
+                    model.UserId = user.Id;
+                    await _context.AddAsync(model);
+                    await _context.SaveChangesAsync();
+
+                }
+                return Ok();
+            }
+
+            return Error();
+        }
+    }
+}

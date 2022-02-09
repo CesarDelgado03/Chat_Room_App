@@ -1,0 +1,86 @@
+﻿@model IEnumerable<ChatMessage>
+
+@{ var CurrentUser = ViewBag.DisplayName;
+    var UserId = ViewBag.UserId;
+    ViewBag.Title = "ChatRoom"; }
+
+
+<div class="card">
+    <div class="card-header">
+        <span class="float-left">Public Chat Room</span>
+        <span class="float-right">
+            Hello <bold class="text-primary">@CurrentUser</bold>, Feel free to Chat!!!
+        </span>
+
+    </div>
+    <div class="card-body">
+        <div class="bg-transparent">
+
+            <input type="hidden" id="CurrentUser" value="@CurrentUser" />
+            <div class="row">
+                <div class="col-12" id="ChatSpace">
+                    @if (Model != null)
+                    {
+        @foreach (var chatMessage in Model.OrderBy(m => m.DateSent))
+        {
+            string msgContainer;
+            string dateSent = $"{chatMessage.DateSent.ToShortDateString()} {chatMessage.DateSent.ToShortTimeString()}";
+            string msgAlignPos;
+            string msgSizePos;
+
+            if (User.Identity.Name == chatMessage.UserName)
+            {
+                msgContainer = "container-fluid border-bottom border-primary m-1 p-1";
+                msgAlignPos = "text-right";
+                msgSizePos = "col-11 offset-1";
+            }
+            else
+            {
+                msgContainer = "container-fluid border-bottom border-secondary m-1 p-1";
+                msgAlignPos = "text-left";
+                msgSizePos = "col-11";
+            }
+
+<div class="row">
+    <div class="@msgSizePos ">
+        <div class="@msgContainer">
+            <p class="msg-from @msgAlignPos">
+                @chatMessage.ChatRoomUser.DisplayName&nbsp;-&nbsp;<span class="date-sent">@dateSent</span>
+            </p>
+            <p class="@msgAlignPos">@chatMessage.Message</p>
+
+        </div>
+    </div>
+</div>}}
+                </div>
+                <div class="col-12 pt-3">
+                    <form asp-action="SendMessage" data-ajax-method="POST" data-ajax="true"
+                          data-ajax-begin="clearMessageField" data-ajax-complete=""
+                          data-ajax-success="sendMessage" data-ajax-failuer="alert('Error while sending the message')">
+                        <div class="alert-danger" role="alert" asp-validation-summary="ModelOnly"></div>
+                        <input type="hidden" id="UserName" name="UserName" value="@CurrentUser" />
+                        <input type="hidden" id="UserId" name="UserId" value="@UserId" />
+                        <div class="input-group">
+                            <textarea class="form-control" id="Message" name="Message" aria-label="Text Message"></textarea>
+                            <div class="input-group-append">
+                                <button id="sendMessgeBtn" type="submit" value="sendmessage" class="btn btn-outline-secondary">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/lib/jquery-ajax-unobtrusive/dist/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+    <script src="~/lib/babel-polyfill/polyfill.min.js"></script>
+    <script src="~/lib/babel/standalone/babel.min.js"></script>
+    <script type="text/babel" src="~/js/chatRoom.js" asp-append-version="true"></script>
+    <script type="text/babel" src="~/js/signalRBootstraper.js"></script>
+}
+

@@ -1,0 +1,9 @@
+C:\Users\LENOVO\source\repos\ChatRoomApp\ChatRoomApp\obj\Debug\net5.0\ChatRoomApp.csproj.AssemblyReference.cache
+C:\Users\LENOVO\source\repos\ChatRoomApp\ChatRoomApp\obj\Debug\net5.0\ChatRoomApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\LENOVO\source\repos\ChatRoomApp\ChatRoomApp\obj\Debug\net5.0\ChatRoomApp.AssemblyInfoInputs.cache
+C:\Users\LENOVO\source\repos\ChatRoomApp\ChatRoomApp\obj\Debug\net5.0\ChatRoomApp.AssemblyInfo.cs
+C:\Users\LENOVO\source\repos\ChatRoomApp\ChatRoomApp\obj\Debug\net5.0\ChatRoomApp.csproj.CoreCompileInputs.cache
+C:\Users\LENOVO\source\repos\ChatRoomApp\ChatRoomApp\obj\Debug\net5.0\ChatRoomApp.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\LENOVO\source\repos\ChatRoomApp\ChatRoomApp\obj\Debug\net5.0\ChatRoomApp.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\LENOVO\source\repos\ChatRoomApp\ChatRoomApp\obj\Debug\net5.0\ChatRoomApp.RazorAssemblyInfo.cache
+C:\Users\LENOVO\source\repos\ChatRoomApp\ChatRoomApp\obj\Debug\net5.0\ChatRoomApp.RazorAssemblyInfo.cs
