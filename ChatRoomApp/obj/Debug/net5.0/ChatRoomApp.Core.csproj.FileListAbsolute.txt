@@ -142,6 +142,7 @@ C:\Users\LENOVO\source\repos\ChatRoomApp\ChatRoomApp\obj\Debug\net5.0\ChatRoomAp
 C:\Users\LENOVO\source\repos\ChatRoomApp\ChatRoomApp\obj\Debug\net5.0\ChatRoomApp.Core.TagHelpers.output.cache
 C:\Users\LENOVO\source\repos\ChatRoomApp\ChatRoomApp\obj\Debug\net5.0\ChatRoomApp.Core.RazorCoreGenerate.cache
 C:\Users\LENOVO\source\repos\ChatRoomApp\ChatRoomApp\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Login.cshtml.g.cs
+C:\Users\LENOVO\source\repos\ChatRoomApp\ChatRoomApp\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Logout.cshtml.g.cs
 C:\Users\LENOVO\source\repos\ChatRoomApp\ChatRoomApp\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Register.cshtml.g.cs
 C:\Users\LENOVO\source\repos\ChatRoomApp\ChatRoomApp\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\_ViewImports.cshtml.g.cs
 C:\Users\LENOVO\source\repos\ChatRoomApp\ChatRoomApp\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
@@ -163,4 +164,3 @@ C:\Users\LENOVO\source\repos\ChatRoomApp\ChatRoomApp\obj\Debug\net5.0\ChatRoomAp
 C:\Users\LENOVO\source\repos\ChatRoomApp\ChatRoomApp\obj\Debug\net5.0\ref\ChatRoomApp.Core.dll
 C:\Users\LENOVO\source\repos\ChatRoomApp\ChatRoomApp\obj\Debug\net5.0\ChatRoomApp.Core.pdb
 C:\Users\LENOVO\source\repos\ChatRoomApp\ChatRoomApp\obj\Debug\net5.0\ChatRoomApp.Core.genruntimeconfig.cache
-C:\Users\LENOVO\source\repos\ChatRoomApp\ChatRoomApp\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Logout.cshtml.g.cs

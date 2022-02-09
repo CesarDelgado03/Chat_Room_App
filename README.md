@@ -21,12 +21,11 @@ This web Application can be used for areal time chat room, where logged users ch
 
 Follow the next steps to get a working copy of the app
 
-1. Download the zip package or clone the repository using any git client.
-2. Configure RabbitMQ Server client. The App uses the default values of RabbitMQ, so don’t change them. To install it with the default values just follow [these](https://www.rabbitmq.com/download.html) instructions. 
-3. Start visual studio 2019 and open the downloaded solution.
-4. Run entity framework migrations to restore the database to the correct version. SQL Server localdb is current database used in the project.
-5. Ensure that RabbitMQ is already running, run the ChatRoomApp.Core application to test it. You must create a user to logging and start chatting with another created user in the required browser instances.
-
+1. Clone the repository.
+2. Configure RabbitMQ with the default settings following these [https://www.rabbitmq.com/download.html](https://www.rabbitmq.com/download.html) instructions. If you want to set your own settings, change the credentials in the appsettings.json 
+3. Execute migrations using "Update-Database -Context ApplicationDbContext" or "dotnet ef database update --context ApplicationDbContext"
+4. Run the ChatRoomApp and the CommandBot
+5. Ensure that RabbitMQ is running, register some users and start testing
 
 ## Notes
 

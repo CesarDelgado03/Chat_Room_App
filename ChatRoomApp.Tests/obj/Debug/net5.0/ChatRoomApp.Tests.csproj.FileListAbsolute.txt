@@ -7,6 +7,7 @@ C:\Users\LENOVO\source\repos\ChatRoomApp\ChatRoomApp.Tests\bin\Debug\net5.0\Chat
 C:\Users\LENOVO\source\repos\ChatRoomApp\ChatRoomApp.Tests\bin\Debug\net5.0\ChatRoomApp.Core.runtimeconfig.dev.json
 C:\Users\LENOVO\source\repos\ChatRoomApp\ChatRoomApp.Tests\bin\Debug\net5.0\appsettings.Development.json
 C:\Users\LENOVO\source\repos\ChatRoomApp\ChatRoomApp.Tests\bin\Debug\net5.0\appsettings.json
+C:\Users\LENOVO\source\repos\ChatRoomApp\ChatRoomApp.Tests\bin\Debug\net5.0\ChatRoomApp.Core.StaticWebAssets.xml
 C:\Users\LENOVO\source\repos\ChatRoomApp\ChatRoomApp.Tests\bin\Debug\net5.0\ChatRoomApp.Core.exe
 C:\Users\LENOVO\source\repos\ChatRoomApp\ChatRoomApp.Tests\bin\Debug\net5.0\testhost.exe
 C:\Users\LENOVO\source\repos\ChatRoomApp\ChatRoomApp.Tests\bin\Debug\net5.0\Microsoft.TestPlatform.PlatformAbstractions.dll

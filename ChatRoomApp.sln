@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatRoomApp.CommandBot", "C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatRoomApp.Tests", "ChatRoomApp.Tests\ChatRoomApp.Tests.csproj", "{9EF2133F-ADCF-49A4-91C6-E17D5577F5C3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatRoomApp.WorkerBot", "ChatRoomApp.WorkerBot\ChatRoomApp.WorkerBot.csproj", "{44D627D9-D89B-4AD9-B474-63742D2E7EF5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{9EF2133F-ADCF-49A4-91C6-E17D5577F5C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9EF2133F-ADCF-49A4-91C6-E17D5577F5C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9EF2133F-ADCF-49A4-91C6-E17D5577F5C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44D627D9-D89B-4AD9-B474-63742D2E7EF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44D627D9-D89B-4AD9-B474-63742D2E7EF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44D627D9-D89B-4AD9-B474-63742D2E7EF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44D627D9-D89B-4AD9-B474-63742D2E7EF5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
