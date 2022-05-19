@@ -18,15 +18,12 @@ namespace ChatRoomApp.Core.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class LoginModel : PageModel
     {
-        private readonly UserManager<ChatRoomUser> _userManager;
         private readonly SignInManager<ChatRoomUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
 
         public LoginModel(SignInManager<ChatRoomUser> signInManager, 
-            ILogger<LoginModel> logger,
-            UserManager<ChatRoomUser> userManager)
+            ILogger<LoginModel> logger)
         {
-            _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
         }

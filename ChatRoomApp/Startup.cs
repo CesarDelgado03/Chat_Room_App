@@ -1,4 +1,5 @@
-using ChatRoomApp.Core.Data;
+
+using ChatRoomApp.Core.Services.ChatRoom;
 using ChatRoomApp.Data;
 using ChatRoomApp.Infrastructure.Bot;
 using ChatRoomApp.Infrastructure.Hubs;
@@ -40,6 +41,8 @@ namespace ChatRoomApp
             services.AddRazorPages();
             services.AddSignalR();
             services.AddSingleton<IRabbitMQService, BotCommunicationService>();
+
+            services.AddScoped<ChatService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

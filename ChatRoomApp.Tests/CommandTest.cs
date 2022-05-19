@@ -17,13 +17,12 @@ namespace ChatRoomApp.Tests
         {
             // arrange
             ChatMessage msg = new ChatMessage() { Message = "/stock=AAPL.US" };
-            bool isCommand = true;
 
             // act
             bool testIfCommand = msg.IsCommand();
 
             // assert
-            Assert.AreEqual(testIfCommand, isCommand);
+            Assert.IsTrue(testIfCommand);
         }
 
         [Test]
@@ -31,13 +30,12 @@ namespace ChatRoomApp.Tests
         {
             // arrange
             ChatMessage msg = new ChatMessage() { Message = "This is not a valid expected command." };
-            bool isCommand = false;
 
             // act
             bool testIfCommand = msg.IsCommand();
 
             // assert
-            Assert.AreEqual(testIfCommand, isCommand);
+            Assert.IsFalse(testIfCommand);
         }
 
         [Test]
@@ -59,13 +57,12 @@ namespace ChatRoomApp.Tests
         {
             // arrange
             ChatMessage msg = new ChatMessage() { Message = "This is not a valid expected command." };
-            string resultCommand = null;
 
             // act
             string testCommand = msg.GetCommand();
 
             // assert
-            Assert.AreEqual(testCommand, resultCommand);
+            Assert.IsNull(testCommand);
         }
     }
 }

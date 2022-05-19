@@ -1,4 +1,5 @@
-﻿using ChatRoomApp.Data;
+﻿using ChatRoomApp.Core.Services.ChatRoom;
+using ChatRoomApp.Data;
 using ChatRoomApp.Helpers;
 using ChatRoomApp.Infrastructure.Bot;
 using ChatRoomApp.Models;
@@ -20,19 +21,16 @@ namespace ChatRoomApp.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly UserManager<ChatRoomUser> _userManager;
-        private readonly ApplicationDbContext _context;
-        private readonly IRabbitMQService _mQService;
+        private readonly ChatService _chatService;
 
         public HomeController(
             ILogger<HomeController> logger,
             UserManager<ChatRoomUser> userManager,
-            ApplicationDbContext context,
-            IRabbitMQService mQService)
+            ChatService chatService)
         {
             _logger = logger;
             _userManager = userManager;
-            _context = context;
-            _mQService = mQService;
+            _chatService = chatService;
         }
 
         public async Task<IActionResult> Index()
@@ -40,14 +38,10 @@ namespace ChatRoomApp.Controllers
             var loggedUser = await _userManager.GetUserAsync(User);
             ViewBag.DisplayName = loggedUser.DisplayName;
             ViewBag.UserId = loggedUser.Id;
-            var model = await _context.ChatMessages
-                .Include(m => m.ChatRoomUser)
-                .OrderByDescending(m => m.DateSent)
-                .Take(50)
-                .OrderBy(m => m.DateSent)
-                .ToListAsync();
 
-            return View(model);
+            var messages = await _chatService.GetMessages(50);
+
+            return View(messages);
         }
 
         public IActionResult Privacy()
@@ -67,21 +61,13 @@ namespace ChatRoomApp.Controllers
             if (ModelState.IsValid)
             {
                 model.Message = model.Message.Trim();
-                if (model.IsCommand())
-                {
-                    var command = model.GetCommand();
-                    //TODO send command to rabbitMQ
-                    _mQService.Send(command);
-                }
-                else
-                {
-                    model.UserName = User.Identity.Name;
-                    var user = await _userManager.GetUserAsync(User);
-                    model.UserId = user.Id;
-                    await _context.AddAsync(model);
-                    await _context.SaveChangesAsync();
 
-                }
+                model.UserName = User.Identity.Name;
+                var user = await _userManager.GetUserAsync(User);
+                model.UserId = user.Id;
+
+                await _chatService.SendMessage(model);
+
                 return Ok();
             }
 
